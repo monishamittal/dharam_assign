@@ -13,6 +13,7 @@ app.use(session({
     saveUninitialized: false
 }))
 
+//----------mongoose connection--------------
 mongoose.connect("mongodb+srv://functionup-radon:radon123@cluster0.q0p7q73.mongodb.net/dharamAssign-DB?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
@@ -21,7 +22,7 @@ mongoose.connect("mongodb+srv://functionup-radon:radon123@cluster0.q0p7q73.mongo
 
 app.use('/', route);
 
-
+//--------------server on port 5002---------------
 const server = app.listen(process.env.PORT || 5002, function () {
     console.log('Server on port ' + (process.env.PORT || 5002))
 });

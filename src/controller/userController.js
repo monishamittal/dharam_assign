@@ -1,5 +1,6 @@
 const userModel = require("../model/userModel.js");
 
+//------------------creating user-----------
 const createUser = async function (req, res) {
     try {
         const user = req.body;
@@ -15,7 +16,7 @@ const createUser = async function (req, res) {
     }
 };
 
-
+//-------------------logging in through sessions--------------
 const loginUser = async function (req, res) {
     try {
         let username = req.body.username;
@@ -33,16 +34,16 @@ const loginUser = async function (req, res) {
     }
 };
 
-
+//----------user logged out session destroyed----------------
 const logoutUser = async function (req, res) {
     req.session.destroy()
     return res.status(200).send({ status: true, message: "user logged out" });
 };
 
-
+//----------------dummy admin api for checking redirection after user log in --------------
 const adminUser = async function (req, res) {
     try {
-        res.status(201).send({ message: "you are redirected to admin page" });
+        res.status(200).send({ message: "you are redirected to admin page" });
     } catch (err) {
         return res.status(500).send({ status: false, msg: err.message });
     }

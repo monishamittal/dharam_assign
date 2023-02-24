@@ -19,12 +19,17 @@ const campaignSchema = new mongoose.Schema({
     ratio_percentage: {
       type: String,
       required: true,
-    }
+    },
   }],
   enabled: {
     type: Boolean,
     default: false
   },
+  requests: {
+    type: Number,
+    default: 0
+  },
 }, { timestamps: true });
+
 
 module.exports = mongoose.model("campaign", campaignSchema);
